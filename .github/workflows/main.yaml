@@ -14,6 +14,8 @@ jobs:
         kind: [rst,dcp,mpi]
     steps:
     - name: step 1
-      run: ./hello.sh ${{ matrix.kind }}
+      run: |
+        MYDIR=$(dirname $(pwd))
+        ./${MYDIR}/hello.sh ${{ matrix.kind }}
     - name: step 2
       run: echo "${{ matrix.kind }}"
