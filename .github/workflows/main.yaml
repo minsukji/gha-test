@@ -16,10 +16,10 @@ jobs:
     - name: step 1
       run: |
         pwd
-        ls -l $(pwd)
+        ls -l $GITHUB_WORKSPACE
         df -h
         #MYDIR=$(dirname $(pwd))
         #${GITHUB_WORKSPACE}/hello.sh ${{ matrix.kind }}
-        /github/workspace/hello.sh ${{ matrix.kind }}
+        #/github/workspace/hello.sh ${{ matrix.kind }}
     - name: step 2
       run: echo "${{ matrix.kind }}"
