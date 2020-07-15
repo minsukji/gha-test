@@ -13,12 +13,14 @@ jobs:
       matrix:
         kind: [rst,dcp,mpi]
     steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
     - name: step 1
       run: |
         cd ${GITHUB_WORKSPACE}
         ls -l
-        #MYDIR=$(dirname $(pwd))
-        #${GITHUB_WORKSPACE}/hello.sh ${{ matrix.kind }}
-        #/github/workspace/hello.sh ${{ matrix.kind }}
+        ./hello.sh ${{ matrix.kind }}
+
     - name: step 2
       run: echo "${{ matrix.kind }}"
