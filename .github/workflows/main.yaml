@@ -16,6 +16,6 @@ jobs:
     - name: step 1
       run: |
         MYDIR=$(dirname $(pwd))
-        ./${MYDIR}/hello.sh ${{ matrix.kind }}
+        .${MYDIR}/hello.sh ${{ matrix.kind }}
     - name: step 2
       run: echo "${{ matrix.kind }}"
