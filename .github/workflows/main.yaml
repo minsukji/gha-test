@@ -15,7 +15,10 @@ jobs:
     steps:
     - name: step 1
       run: |
-        MYDIR=$(dirname $(pwd))
-        ${GITHUB_WORKSPACE}/hello.sh ${{ matrix.kind }}
+        pwd
+        ls -l
+        df -h
+        #MYDIR=$(dirname $(pwd))
+        #${GITHUB_WORKSPACE}/hello.sh ${{ matrix.kind }}
     - name: step 2
       run: echo "${{ matrix.kind }}"
