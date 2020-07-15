@@ -16,7 +16,7 @@ jobs:
     - name: step 1
       run: |
         pwd
-        ls -l
+        ls -l $(pwd)
         df -h
         #MYDIR=$(dirname $(pwd))
         #${GITHUB_WORKSPACE}/hello.sh ${{ matrix.kind }}
