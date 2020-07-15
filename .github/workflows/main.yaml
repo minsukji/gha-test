@@ -1,4 +1,4 @@
-name: test
+name: Pull request tests
 
 on:
   push:
@@ -7,11 +7,13 @@ on:
 
 jobs:
   job1:
-    name: ${{ matrix.kind }}
+    name: ${{ matrix.kind }} test
     runs-on: ubuntu-latest
     strategy:
       matrix:
         kind: [rst,dcp,mpi]
     steps:
     - name: step 1
-      run: echo "Hello, ${{ matrix.kind }}"
+      run: ./hello.sh ${{ matrix.kind }}
+    - name: step 2
+      run: echo "${{ matrix.kind }}"
