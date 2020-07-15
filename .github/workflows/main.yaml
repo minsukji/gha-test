@@ -7,11 +7,12 @@ on:
 
 jobs:
   job1:
-    name: ${{ matrix.kind }} test
+    name: ${{ matrix.name }} test
     runs-on: ubuntu-latest
     strategy:
       matrix:
         kind: [rst,dcp,mpi]
+        name: [restart,decomposition,mpi]
     steps:
     - name: checkout
       uses: actions/checkout@v2
