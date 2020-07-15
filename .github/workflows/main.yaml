@@ -6,13 +6,14 @@ on:
     - master
 
 jobs:
-  job1:
-    name: ${{ matrix.name }} test
+  job:
+    name: ${{ matrix.kind }} test
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         kind: [rst,dcp,mpi]
-        name: [restart,decomposition,mpi]
+
     steps:
     - name: checkout
       uses: actions/checkout@v2
