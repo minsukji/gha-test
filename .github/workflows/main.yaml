@@ -14,6 +14,4 @@ jobs:
         kind: [rst,dcp,mpi]
     steps:
     - name: step 1
-      with:
-        kind: ${{ matrix.kind }}
-      run: ./hello.sh
+      run: echo "Hello, ${{ matrix.kind }}"
