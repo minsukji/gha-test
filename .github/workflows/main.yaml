@@ -1,0 +1,19 @@
+name: test
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  job1:
+    name: test 1
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        kind: [rst,dcp,mpi]
+    steps:
+    - name: step 1
+      with:
+        kind: ${{ matrix.kind }}
+      run: ./hello.sh
