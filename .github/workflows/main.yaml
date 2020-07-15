@@ -20,5 +20,6 @@ jobs:
         df -h
         #MYDIR=$(dirname $(pwd))
         #${GITHUB_WORKSPACE}/hello.sh ${{ matrix.kind }}
+        /github/workspace/hello.sh ${{ matrix.kind }}
     - name: step 2
       run: echo "${{ matrix.kind }}"
