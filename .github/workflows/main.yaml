@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      output1: $ {{ steps.pstep.outputs.test }}
+      output1: ${{ steps.pstep.outputs.test }}
 
     steps:
     - name: checkout
