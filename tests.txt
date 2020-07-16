@@ -1,1 +1,1 @@
-[rst,dcp,mpi]
+[\"rst\",\"dcp\",\"mpi\"]
