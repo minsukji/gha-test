@@ -20,7 +20,7 @@ jobs:
     - name: parse cases to run
       id: pstep
       run: |
-        echo "::set-output name=v1::$(cat ${GITHUB_WORKSPACE}/tests.txt)"
+        echo "::set-output name=v1::$(sed -n 2p ${GITHUB_WORKSPACE}/tests.txt)"
 
   job2:
     name: ${{ matrix.kind }} test
