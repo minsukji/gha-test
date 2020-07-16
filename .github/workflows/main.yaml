@@ -22,7 +22,7 @@ jobs:
       run: |
         TESTS=$(cut -d "," -f 1 ${GITHUB_WORKSPACE}/tests.txt)
         #echo "::set-output name=cases::${TESTS}"
-        echo "::set-output name=test::hello"
+        echo "::set-output name=test::${TESTS}"
         
 
   job2:
