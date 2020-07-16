@@ -6,7 +6,20 @@ on:
     - master
 
 jobs:
-  job:
+  job1:
+    name: preliminary
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: cases to run
+      run: |
+        TESTS=$(cut -d "," -f 1 tests.txt)
+        echo $TESTS
+
+  job2:
     name: ${{ matrix.kind }} test
     runs-on: ubuntu-latest
 
