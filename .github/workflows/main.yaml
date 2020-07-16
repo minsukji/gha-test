@@ -11,18 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      output1: $ {{ steps.prelim_step.outputs.cases }}
+      output1: $ {{ steps.pstep.outputs.case }}
 
     steps:
     - name: checkout
       uses: actions/checkout@v2
 
     - name: cases to run
-      id: prelim_step
+      id: pstep
       run: |
         TESTS=$(cut -d "," -f 1 ${GITHUB_WORKSPACE}/tests.txt)
-        echo "::set-output name=cases::${TESTS}"
-        #echo "::set-output name=cases::parameter"
+        #echo "::set-output name=cases::${TESTS}"
+        echo "::set-output name=case::hello"
         
 
   job2:
@@ -44,7 +44,7 @@ jobs:
         cd ${GITHUB_WORKSPACE}
         ls -l
         ./hello.sh ${{ matrix.kind }}
-        echo "${{ needs.job1.outputs.output1 }}"
+        echo "${{needs.job1.outputs.output1}}"
 
     - name: step 2
       run: echo "${{ matrix.kind }}"
