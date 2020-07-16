@@ -20,8 +20,8 @@ jobs:
     - name: cases to run
       id: pstep
       run: |
-        TESTS=$(cut -d "," -f 1 ${GITHUB_WORKSPACE}/tests.txt)
-        #echo "::set-output name=cases::${TESTS}"
+        #TESTS=$(cut -d "," -f 1 ${GITHUB_WORKSPACE}/tests.txt)
+        TESTS=$(cat ${GITHUB_WORKSPACE}/tests.txt)
         echo "::set-output name=test::${TESTS}"
         
 
@@ -32,8 +32,8 @@ jobs:
 
     strategy:
       matrix:
-        kind: [rst]
-        #kind: [${{ jobs.job1.steps.prelim_step.outputs.cases }}]
+        #kind: [rst]
+        kind: [${{needs.job1.outputs.output1}}]
 
     steps:
     - name: checkout
