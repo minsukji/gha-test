@@ -7,20 +7,19 @@ on:
 
 jobs:
   job1:
-    name: preliminary
+    name: determine cases to run
     runs-on: ubuntu-latest
 
     outputs:
-      f1: ${{ steps.pstep.outputs.v1 }}
+      mtx: ${{ steps.parse.outputs.m }}
 
     steps:
-    - name: checkout
+    - name: Checkout
       uses: actions/checkout@v2
 
-    - name: parse cases to run
-      id: pstep
-      run: |
-        echo "::set-output name=v1::$(sed -n 2p ${GITHUB_WORKSPACE}/tests.txt)"
+    - name: Parse cases
+      id: parse
+      run: echo "::set-output name=m::$(sed -n 2p ${GITHUB_WORKSPACE}/tests.txt)"
 
   job2:
     name: ${{ matrix.kind }} test
@@ -28,17 +27,17 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      matrix: ${{fromJson(needs.job1.outputs.f1)}}
+      matrix: ${{fromJson(needs.job1.outputs.mtx)}}
 
     steps:
-    - name: checkout
+    - name: Checkout
       uses: actions/checkout@v2
 
-    - name: step 1
+    - name: Step 1
       run: |
         cd ${GITHUB_WORKSPACE}
         ls -l
         ./hello.sh ${{ matrix.kind }}
 
-    - name: step 2
+    - name: Step 2
       run: echo "${{ matrix.kind }}"
