@@ -28,7 +28,6 @@ jobs:
 
     strategy:
       matrix:
-        #kind: [rst,dcp,mpi]
         kind: [${{ jobs.job1.steps.prelim_step.outputs.cases }}]
 
     steps:
