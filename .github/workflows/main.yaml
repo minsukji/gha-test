@@ -28,7 +28,8 @@ jobs:
 
     strategy:
       matrix:
-        kind: [${{ jobs.job1.steps.prelim_step.outputs.cases }}]
+        kind: [rst]
+        #kind: [${{ jobs.job1.steps.prelim_step.outputs.cases }}]
 
     steps:
     - name: checkout
