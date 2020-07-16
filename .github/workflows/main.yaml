@@ -24,7 +24,7 @@ jobs:
         TEST1=$(cut -d "," -f 1 ${GITHUB_WORKSPACE}/tests.txt)
         TEST2=$(cut -d "," -f 2 ${GITHUB_WORKSPACE}/tests.txt)
         TEST3=$(cut -d "," -f 3 ${GITHUB_WORKSPACE}/tests.txt)
-        echo "::set-output name=test1::${TEST1}"
+        echo "::set-output name=test1::$(cut -d, -f1 ${GITHUB_WORKSPACE}/tests.txt)"
         echo "::set-output name=test2::${TEST2}"
         echo "::set-output name=test3::${TEST3}"
         
