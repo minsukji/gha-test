@@ -16,7 +16,7 @@ jobs:
 
     - name: cases to run
       run: |
-        TESTS=$(cut -d "," -f 1 tests.txt)
+        TESTS=$(cut -d "," -f 1 ${GITHUB_WORKSPACE}/tests.txt)
         echo $TESTS
 
   job2:
