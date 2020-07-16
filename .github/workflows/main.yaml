@@ -33,7 +33,7 @@ jobs:
 
     strategy:
       matrix:
-        kind: ["${{needs.job1.outputs.f1}}","${{needs.job1.outputs.f2}}","${{needs.job1.outputs.f3}}",]
+        kind: ["${{needs.job1.outputs.f1}}","${{needs.job1.outputs.f2}}","${{needs.job1.outputs.f3}}", ,]
 
     steps:
     - name: checkout
