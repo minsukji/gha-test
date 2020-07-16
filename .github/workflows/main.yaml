@@ -34,7 +34,7 @@ jobs:
     strategy:
       matrix:
         #kind: ["${{needs.job1.outputs.f1}}","${{needs.job1.outputs.f2}}","${{needs.job1.outputs.f3}}", ,]
-        kind: ["$(echo rst)","$(echo dcp)","$(echo mpi)"]
+        kind: [$(echo rst),$(echo dcp),$(echo mpi)]
 
     steps:
     - name: checkout
