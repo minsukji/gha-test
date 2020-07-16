@@ -43,7 +43,7 @@ jobs:
     strategy:
       matrix:
         #kind: [rst]
-        kind: ["${{needs.job1.outputs.output1}}","${{needs.job1.outputs.output2}}","{{needs.job1.outputs.output3}}"]
+        kind: ["${{needs.job1.outputs.output1}}","${{needs.job1.outputs.output2}}","${{needs.job1.outputs.output3}}"]
 
     steps:
     - name: checkout
