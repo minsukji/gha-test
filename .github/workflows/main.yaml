@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      f1: ${{ steps.pstep.outputs.test1 }}
-      f2: ${{ steps.pstep.outputs.test2 }}
-      f3: ${{ steps.pstep.outputs.test3 }}
+      f1: ${{ steps.pstep.outputs.v1 }}
+      f2: ${{ steps.pstep.outputs.v2 }}
+      f3: ${{ steps.pstep.outputs.v3 }}
 
     steps:
     - name: checkout
@@ -22,9 +22,9 @@ jobs:
     - name: parse cases to run
       id: pstep
       run: |
-        echo "::set-output name=test1::$(cut -d, -f1 ${GITHUB_WORKSPACE}/tests.txt)"
-        echo "::set-output name=test2::$(cut -d, -f2 ${GITHUB_WORKSPACE}/tests.txt)"
-        echo "::set-output name=test3::$(cut -d, -f3 ${GITHUB_WORKSPACE}/tests.txt)"
+        echo "::set-output name=v1::$(cut -d, -f1 ${GITHUB_WORKSPACE}/tests.txt)"
+        echo "::set-output name=v2::$(cut -d, -f2 ${GITHUB_WORKSPACE}/tests.txt)"
+        echo "::set-output name=v3::$(cut -d, -f3 ${GITHUB_WORKSPACE}/tests.txt)"
         
   job2:
     name: ${{ matrix.kind }} test
