@@ -18,7 +18,8 @@ jobs:
       id: prelim_step
       run: |
         TESTS=$(cut -d "," -f 1 ${GITHUB_WORKSPACE}/tests.txt)
-        echo "::set-output name=cases::${TESTS}"
+        #echo "::set-output name=cases::${TESTS}"
+        echo "::set-output name=cases::parameter"
         
 
   job2:
@@ -40,7 +41,7 @@ jobs:
         cd ${GITHUB_WORKSPACE}
         ls -l
         ./hello.sh ${{ matrix.kind }}
-        echo "${{ job1.steps.prelim_step.outputs.cases }}"
+        echo "${{ needs.job1.steps.prelim_step.outputs.cases }}"
 
     - name: step 2
       run: echo "${{ matrix.kind }}"
