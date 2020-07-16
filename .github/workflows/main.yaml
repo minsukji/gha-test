@@ -21,6 +21,7 @@ jobs:
 
   job2:
     name: ${{ matrix.kind }} test
+    needs: job1
     runs-on: ubuntu-latest
 
     strategy:
